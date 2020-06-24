@@ -1,50 +1,13 @@
-import React, { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  FlatList,
-  Alert
-} from "react-native";
-import { api } from "./src/utils/api";
-import { BaseResponse, Movie } from "./src/interfaces";
-import MovieTile from "./src/components/MovieTile";
+import React from "react";
+import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import Navigator from "./src/components/Navigator";
 
 const App = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-
-  const handleError = (e: Error) => {
-    Alert.alert(e.toString());
-  };
-
-  const renderItem = ({ item }) => {
-    return <MovieTile movie={item} key={item.id} />;
-  };
-
-  useEffect(() => {
-    api
-      .get<BaseResponse<Movie[]>>("/discover/movie", {
-        params: { sort_by: "popularity.desc" }
-      })
-      .then((res) => {
-        setMovies(res.data.results);
-      })
-      .catch(handleError);
-  }, []);
-
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <FlatList
-          contentContainerStyle={styles.view}
-          data={movies}
-          renderItem={renderItem}
-          numColumns={2}
-        />
+      <SafeAreaView style={styles.view}>
+        <Navigator />
       </SafeAreaView>
     </>
   );
@@ -52,7 +15,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   view: {
-    alignItems: "center"
+    flex: 1
   }
 });
 
