@@ -194,7 +194,6 @@
 				E087FF3E9008F05D9948514A /* Pods-sampleMovieApp-tvOSTests.debug.xcconfig */,
 				086257CB429BC4DA9EE8F50E /* Pods-sampleMovieApp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
