@@ -8,10 +8,10 @@ const VIDEO_URL =
 const Player: React.FC = () => {
   return (
     <Video
-        source={{ uri: VIDEO_URL }}
-        controls={true}
-        style={styles.player}
-        fullscreen={true}
+      source={{ uri: VIDEO_URL }}
+      controls={true}
+      style={styles.player}
+      fullscreen={true}
     />
   );
 };
