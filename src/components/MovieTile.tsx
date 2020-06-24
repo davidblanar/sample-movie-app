@@ -1,6 +1,12 @@
 import React from "react";
 import { Movie } from "../interfaces";
-import { ImageBackground, StyleSheet, TouchableOpacity, Text } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Dimensions
+} from "react-native";
 
 interface Props {
   movie: Movie;
@@ -18,13 +24,17 @@ const MovieTile: React.FC<Props> = ({ movie }) => {
   );
 };
 
+const { width } = Dimensions.get("screen");
+const tileWidth = width * 0.45;
+const tileHeight = tileWidth * 1.5;
 const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "flex-end",
-    height: 300,
-    width: 200
+    height: tileHeight,
+    width: tileWidth,
+    margin: 10
   }
 });
 

@@ -39,12 +39,21 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <FlatList data={movies} renderItem={renderItem} numColumns={2} />
+        <FlatList
+          contentContainerStyle={styles.view}
+          data={movies}
+          renderItem={renderItem}
+          numColumns={2}
+        />
       </SafeAreaView>
     </>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  view: {
+    alignItems: "center"
+  }
+});
 
 export default App;
