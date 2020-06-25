@@ -59,6 +59,8 @@
       "json",
       "node"
     ],
-    "setupFilesAfterEnv": ["<rootDir>/testSetup.js"]
+    "setupFilesAfterEnv": ["<rootDir>/testSetup.js"],
+    "transformIgnorePatterns": ["/node_modules/(?!react-native|@react-navigation)/.+"],
+    "testPathIgnorePatterns": ["<rootDir>/__tests__/mocks.ts"]
   }
 }
